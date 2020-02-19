@@ -1,0 +1,70 @@
+
+  @keyframes spinner {
+    from {
+      transform: perspective(2000px) rotateY(0deg) rotateZ(10deg) rotateX(90deg);
+    }
+    to {
+      transform: perspective(2000px) rotateY(360deg);
+    }
+  }
+
+
+.map {
+    left: calc(50%);
+    top: calc(50% );
+    position: absolute;
+    transform-style: preserve-3d;
+
+    animation-name: spinner;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-duration: 24s;
+    transform-box: fill-box;
+    transform-origin: center;
+
+}
+
+body,
+html {
+    overflow: hidden;
+    background-color: rgba(0, 16, 32, 0.9);
+}
+
+.block {
+    transform-style: preserve-3d;
+    transition: transform 2s ease-in-out;
+}
+
+.block div {
+    background-image: url(block.png);
+    content: "";
+    position: absolute;
+    width: 256px;
+    height: 256px;
+}
+
+.block .front { transform: translateZ(128px); }
+.block .right { transform: translateX(128px) rotateY(90deg); }
+.block .back { transform: translateZ(-128px) rotateY(180deg); }
+.block .left { transform: translateX(-128px) rotateY(-90deg); }
+.block .top { transform: translateY(-128px) rotateX(90deg); }
+.block .bottom { transform: translateY(128px) rotateX(-90deg); }
+
+.grass-block div { background-position: 0 0; }
+.grass-block div.top { background-position: -256px 0; }
+.grass-block div.bottom { background-position: -768px 0; }
+.stone div { background-position: -512px 0; }
+.mossy-cobblestone div { background-position: -768px 0;}
+.redstone-ore div { background-position: 0 -256px; }
+.redstone-block div { background-position: -256px -256px; }
+.diamond-ore div { background-position: -512px -256px; }
+.diamond-block div { background-position: -768px -256px; }
+.emerald-ore div { background-position: 0 -512px; }
+.emerald-block div { background-position: -256px -512px; }
+.gold-ore div { background-position: -512px -512px; }
+.gold-block div { background-position: -768px -512px; }
+.coal-ore div { background-position: 0 -768px; }
+.coal-block div { background-position: -256px -768px; }
+.iron-ore div { background-position: -512px -768px; }
+.iron-block div { background-position: -768px -768px; }
